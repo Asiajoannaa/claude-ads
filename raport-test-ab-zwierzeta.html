@@ -57,10 +57,9 @@
   .section h2 { font-size: 21px; font-weight: 800; color: #1a1a2e; margin-bottom: 24px; padding-bottom: 14px; border-bottom: 2px solid #f0f4f1; }
 
   /* CREATIVE CARDS */
-  .creative-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin-bottom: 0; }
+  .creative-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
   .creative-card { border-radius: 14px; overflow: hidden; border: 1px solid #e8edf0; }
 
-  /* Image placeholder */
   .ad-image-slot {
     height: 200px;
     display: flex;
@@ -75,29 +74,19 @@
   }
   .ad-image-slot:hover { background: #f0f4f1; border-color: #2d6a4f; }
   .ad-image-slot img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: none;
-    position: absolute;
-    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; display: none;
+    position: absolute; top: 0; left: 0;
   }
   .ad-image-slot .placeholder-text {
-    text-align: center;
-    color: #aaa;
-    font-size: 12px;
-    padding: 10px;
-    z-index: 1;
+    text-align: center; color: #aaa;
+    font-size: 12px; padding: 10px; z-index: 1;
   }
   .ad-image-slot .placeholder-icon { font-size: 32px; margin-bottom: 8px; }
   .ad-image-slot input[type=file] {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
+    position: absolute; inset: 0;
+    opacity: 0; cursor: pointer;
+    width: 100%; height: 100%; z-index: 2;
   }
 
   .creative-card.plener .ad-image-slot { background: #f0fdf4; border-color: #95d5b2; }
@@ -122,6 +111,8 @@
   .metric-label { font-weight: 500; color: #555; }
   .best  { font-weight: 700; color: #2d6a4f; }
   .worst { color: #c0392b; }
+  .highlight-row td { background: #f0fdf4 !important; font-weight: 600; }
+  .highlight-row td.metric-label { color: #1a3a2a; }
   .col-plener { background: rgba(82,183,136,0.06); }
   .col-studio { background: rgba(41,98,255,0.05); }
   .col-biale  { background: rgba(248,249,250,0.8); }
@@ -133,17 +124,26 @@
   .winner-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .winner-card { border-radius: 12px; padding: 20px 22px; border-left: 5px solid; }
   .winner-card.green { background: #f0fdf4; border-color: #2d6a4f; }
-  .winner-card.blue  { background: #eff6ff; border-color: #3b82f6; }
+  .winner-card.amber { background: #fffbeb; border-color: #f59e0b; }
   .winner-card .round { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; color: #6c757d; }
   .winner-card .winner-name { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
   .winner-card.green .winner-name { color: #1a3a2a; }
-  .winner-card.blue  .winner-name { color: #1e40af; }
+  .winner-card.amber .winner-name { color: #92400e; }
   .winner-card .winner-reason { font-size: 12.5px; color: #555; line-height: 1.5; }
   .winner-card .stats-row { display: flex; gap: 16px; margin-top: 12px; }
   .winner-card .stat .s-label { font-size: 10px; text-transform: uppercase; color: #888; }
   .winner-card .stat .s-value { font-size: 18px; font-weight: 800; }
   .winner-card.green .stat .s-value { color: #2d6a4f; }
-  .winner-card.blue  .stat .s-value { color: #1e40af; }
+  .winner-card.amber .stat .s-value { color: #92400e; }
+
+  /* SCALE NOTE */
+  .scale-note {
+    background: #fef9c3; border: 1px solid #fde68a;
+    border-radius: 12px; padding: 16px 20px;
+    font-size: 12.5px; color: #78350f;
+    margin-bottom: 28px; line-height: 1.6;
+  }
+  .scale-note strong { color: #92400e; font-size: 13px; }
 
   /* HIERARCHY */
   .hierarchy {
@@ -306,6 +306,12 @@
   <div class="section">
     <div class="section-title">Część 1 z 2</div>
     <h2>Plener vs Studio (równy budżet ~400 PLN)</h2>
+
+    <div class="scale-note">
+      ⚠️ <strong>Dlaczego skupiamy się na CPA, nie ROAS?</strong><br>
+      Przy 6–13 zakupach na wariant jeden droższy zakup może całkowicie wywrócić ROAS i średnią wartość zamówienia. Na tej skali są to dane przypadkowe, nie trendy. CPA (koszt pozyskania zakupu) jest tu dużo bardziej wiarygodną miarą — zależy od budżetu i liczby zakupów, a nie od wartości pojedynczych koszyków.
+    </div>
+
     <div class="compare-wrap">
       <table>
         <thead>
@@ -323,15 +329,17 @@
           <tr><td class="metric-label">CTR link</td><td class="col-plener best">1,09%</td><td class="col-studio">0,76%</td><td>🌿 Plener</td></tr>
           <tr><td class="metric-label">CPC link (PLN)</td><td class="col-plener best">0,68</td><td class="col-studio">1,13</td><td>🌿 Plener</td></tr>
           <tr><td class="metric-label">Zakupy</td><td class="col-plener">13</td><td class="col-studio">13</td><td>— Remis</td></tr>
-          <tr><td class="metric-label">CPA (PLN)</td><td class="col-plener">30,65</td><td class="col-studio">30,69</td><td>— Remis</td></tr>
-          <tr><td class="metric-label">Wartość konwersji (PLN)</td><td class="col-plener worst">703,25</td><td class="col-studio best">1 160,00</td><td>🎬 Studio</td></tr>
-          <tr><td class="metric-label">ROAS</td><td class="col-plener worst">1,76</td><td class="col-studio best">2,91</td><td>🎬 Studio</td></tr>
-          <tr><td class="metric-label">Śr. wartość zamówienia (PLN)</td><td class="col-plener worst">54,10</td><td class="col-studio best">89,23</td><td>🎬 Studio</td></tr>
+          <tr class="highlight-row">
+            <td class="metric-label">⭐ CPA (PLN)</td>
+            <td class="col-plener best">30,65</td>
+            <td class="col-studio">30,69</td>
+            <td>— Remis</td>
+          </tr>
         </tbody>
       </table>
     </div>
     <div class="note">
-      ⚠️ <strong>Uwaga metodologiczna:</strong> Plener otrzymał 2× wyższy budżet niż każdy wariant studyjny z osobna. W tej tabeli studio = suma obu wariantów — budżety są wyrównane (~400 vs ~400 PLN). Kluczowe są metryki znormalizowane: ROAS, CPA, AOV.
+      ⚠️ <strong>Uwaga metodologiczna:</strong> Plener otrzymał 2× wyższy budżet niż każdy wariant studyjny z osobna. W tej tabeli studio = suma obu wariantów — budżety są wyrównane (~400 vs ~400 PLN).
     </div>
   </div>
 
@@ -357,10 +365,12 @@
           <tr><td class="metric-label">CTR link</td><td class="col-biale best">0,88%</td><td class="col-czarne">0,67%</td><td>⬜ Białe</td></tr>
           <tr><td class="metric-label">CPC link (PLN)</td><td class="col-biale best">1,08</td><td class="col-czarne">1,19</td><td>⬜ Białe</td></tr>
           <tr><td class="metric-label">Zakupy</td><td class="col-biale">6</td><td class="col-czarne best">7</td><td>⬛ Czarne</td></tr>
-          <tr><td class="metric-label">CPA (PLN)</td><td class="col-biale">33,29</td><td class="col-czarne best">28,47</td><td>⬛ Czarne</td></tr>
-          <tr><td class="metric-label">Wartość konwersji (PLN)</td><td class="col-biale best">626,10</td><td class="col-czarne">533,90</td><td>⬜ Białe</td></tr>
-          <tr><td class="metric-label">ROAS</td><td class="col-biale best">3,13</td><td class="col-czarne">2,68</td><td>⬜ Białe</td></tr>
-          <tr><td class="metric-label">Śr. wartość zamówienia (PLN)</td><td class="col-biale best">104,35</td><td class="col-czarne">76,27</td><td>⬜ Białe</td></tr>
+          <tr class="highlight-row">
+            <td class="metric-label">⭐ CPA (PLN)</td>
+            <td class="col-biale worst">33,29</td>
+            <td class="col-czarne best">28,47</td>
+            <td>⬛ Czarne</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -375,20 +385,20 @@
     <div class="winner-grid">
       <div class="winner-card green">
         <div class="round">Runda 1 — Plener vs Studio</div>
-        <div class="winner-name">🎬 Studio wygrywa</div>
-        <div class="winner-reason">Przy identycznym koszcie i tej samej liczbie zakupów (13 vs 13), studio wygenerowało blisko 2× wyższy przychód. Plener przyciąga tańszy ruch, ale niższej wartości zakupowej.</div>
+        <div class="winner-name">🤝 Remis na CPA</div>
+        <div class="winner-reason">Przy równym budżecie i tej samej liczbie zakupów (13 vs 13), CPA jest praktycznie identyczny: 30,65 vs 30,69 PLN. Plener ma przewagę w klikaniu (CTR, CPC) — studio nie jest wyraźnie lepsze ani gorsze na tej skali.</div>
         <div class="stats-row">
-          <div class="stat"><div class="s-label">ROAS Studio</div><div class="s-value">2,91</div></div>
-          <div class="stat"><div class="s-label">ROAS Plener</div><div class="s-value" style="color:#c0392b">1,76</div></div>
+          <div class="stat"><div class="s-label">CPA Plener</div><div class="s-value">30,65 PLN</div></div>
+          <div class="stat"><div class="s-label">CPA Studio</div><div class="s-value">30,69 PLN</div></div>
         </div>
       </div>
-      <div class="winner-card blue">
+      <div class="winner-card amber">
         <div class="round">Runda 2 — Białe vs Czarne tło</div>
-        <div class="winner-name">⬜ Białe tło wygrywa (ROAS)</div>
-        <div class="winner-reason">Białe tło: wyższy ROAS i wyraźnie wyższa wartość zamówienia (104 vs 76 PLN). Czarne tło ma niższy CPA — idealne do remarketingu, gdzie liczy się liczba transakcji.</div>
+        <div class="winner-name">⬛ Czarne tło wygrywa CPA</div>
+        <div class="winner-reason">Czarne tło pozyskało zakup o 4,82 PLN taniej (28,47 vs 33,29 PLN) i wygenerowało o jeden zakup więcej przy identycznym budżecie. Różnica jest widoczna, choć skala (6 vs 7 zakupów) wymaga ostrożności.</div>
         <div class="stats-row">
-          <div class="stat"><div class="s-label">ROAS białe</div><div class="s-value">3,13</div></div>
-          <div class="stat"><div class="s-label">ROAS czarne</div><div class="s-value" style="color:#92400e">2,68</div></div>
+          <div class="stat"><div class="s-label">CPA czarne</div><div class="s-value">28,47 PLN</div></div>
+          <div class="stat"><div class="s-label">CPA białe</div><div class="s-value" style="color:#c0392b">33,29 PLN</div></div>
         </div>
       </div>
     </div>
@@ -396,10 +406,10 @@
 
   <!-- HIERARCHY -->
   <div class="hierarchy">
-    <div class="h-title">Hierarchia wyników</div>
-    <div class="h-row">🥇 <strong>Studio — białe tło</strong> &nbsp;·&nbsp; ROAS 3,13 &nbsp;·&nbsp; AOV 104 PLN <span class="h-tag skaluj" style="margin-left:8px">Skaluj</span></div>
-    <div class="h-row">🥈 <strong>Studio — czarne tło</strong> &nbsp;·&nbsp; ROAS 2,68 &nbsp;·&nbsp; CPA 28,47 PLN <span class="h-tag rmkt" style="margin-left:8px">Remarketing</span></div>
-    <div class="h-row">🥉 <strong>Plener</strong> &nbsp;·&nbsp; ROAS 1,76 &nbsp;·&nbsp; CTR 1,09% <span class="h-tag zasieg" style="margin-left:8px">TOF / Zasięg</span></div>
+    <div class="h-title">Hierarchia wyników (według CPA)</div>
+    <div class="h-row">🥇 <strong>Studio — czarne tło</strong> &nbsp;·&nbsp; CPA 28,47 PLN <span class="h-tag skaluj" style="margin-left:8px">Testuj dalej / remarketing</span></div>
+    <div class="h-row">🥈 <strong>Plener</strong> &nbsp;·&nbsp; CPA 30,65 PLN &nbsp;·&nbsp; CTR 1,09% <span class="h-tag rmkt" style="margin-left:8px">Dobry do ruchu / TOF</span></div>
+    <div class="h-row">🥉 <strong>Studio — białe tło</strong> &nbsp;·&nbsp; CPA 33,29 PLN <span class="h-tag zasieg" style="margin-left:8px">Wymagał wyższego CPA</span></div>
   </div>
 
   <!-- RECOMMENDATIONS -->
@@ -408,19 +418,19 @@
     <h2>Rekomendacje</h2>
     <div class="reco-grid">
       <div class="reco-card scale">
-        <div class="reco-icon">🚀</div>
-        <div class="reco-title">Skaluj białe tło</div>
-        <div class="reco-text">Przesuń 60–70% budżetu sprzedażowego na białe tło. Przetestuj na lookalike 1–3% i rozszerz na inne produkty sklepu.</div>
+        <div class="reco-icon">🔁</div>
+        <div class="reco-title">Powtórz test — większa skala</div>
+        <div class="reco-text">Przy 6–13 zakupach wnioski są kierunkowe, nie pewne. Powtórz test z budżetem min. 600–800 PLN na wariant, by osiągnąć 20+ zakupów i statystyczną wiarygodność.</div>
       </div>
       <div class="reco-card keep">
-        <div class="reco-icon">🎯</div>
-        <div class="reco-title">Czarne → remarketing</div>
-        <div class="reco-text">Najniższy CPA (28,47 PLN). Użyj jako kreacji remarketingowej do osób, które odwiedziły sklep ale nie kupiły.</div>
+        <div class="reco-icon">⬛</div>
+        <div class="reco-title">Czarne tło — priorytet</div>
+        <div class="reco-text">Najniższy CPA w teście. Jako pierwszy kandydat do kolejnego testu i do remarketingu na osoby, które odwiedziły sklep.</div>
       </div>
       <div class="reco-card move">
-        <div class="reco-icon">📢</div>
-        <div class="reco-title">Plener → TOF / zasięg</div>
-        <div class="reco-text">Najlepszy CTR i najtańszy ruch. Przenieś do kampanii zasięgowej lub świadomościowej — nie jako sprzedaż.</div>
+        <div class="reco-icon">🌿</div>
+        <div class="reco-title">Plener — cold traffic / TOF</div>
+        <div class="reco-text">Najlepszy CTR i najtańszy ruch. Przy remisie na CPA warto go zostawić jako kreację do zimnych odbiorców, gdzie zasięg i koszt kliknięcia są ważne.</div>
       </div>
     </div>
   </div>
