@@ -17,7 +17,7 @@
   }
 
   .page {
-    max-width: 900px;
+    max-width: 920px;
     margin: 0 auto;
     background: white;
     border-radius: 16px;
@@ -31,208 +31,177 @@
     padding: 44px 48px 36px;
     color: white;
   }
-  .header-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  .logo-badge {
-    background: rgba(255,255,255,0.18);
-    border-radius: 10px;
-    padding: 8px 14px;
-    font-size: 13px;
+  .header-badges { display: flex; gap: 10px; margin-bottom: 22px; flex-wrap: wrap; }
+  .badge {
+    background: rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.5px;
     color: #d8f3dc;
   }
-  .header h1 {
-    font-size: 28px;
-    font-weight: 800;
-    line-height: 1.25;
-    margin-bottom: 8px;
-  }
-  .header p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.75);
-  }
-  .header-meta {
-    display: flex;
-    gap: 28px;
-    margin-top: 28px;
-    flex-wrap: wrap;
-  }
+  .header h1 { font-size: 27px; font-weight: 800; line-height: 1.25; margin-bottom: 6px; }
+  .header p  { font-size: 14px; color: rgba(255,255,255,0.70); }
+  .header-meta { display: flex; gap: 14px; margin-top: 26px; flex-wrap: wrap; }
   .meta-item {
     background: rgba(255,255,255,0.12);
     border-radius: 10px;
     padding: 10px 18px;
   }
-  .meta-item .label { font-size: 11px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 2px; }
-  .meta-item .value { font-size: 15px; font-weight: 700; color: white; }
+  .meta-item .label { font-size: 10px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 2px; }
+  .meta-item .value { font-size: 14px; font-weight: 700; color: white; }
 
   /* SECTION */
-  .section { padding: 40px 48px; }
-  .section-title {
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: #2d6a4f;
-    margin-bottom: 6px;
-  }
-  .section h2 {
-    font-size: 22px;
-    font-weight: 800;
-    color: #1a1a2e;
-    margin-bottom: 28px;
-    padding-bottom: 16px;
-    border-bottom: 2px solid #f0f4f1;
-  }
+  .section { padding: 38px 48px; }
+  .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #2d6a4f; margin-bottom: 4px; }
+  .section h2 { font-size: 21px; font-weight: 800; color: #1a1a2e; margin-bottom: 24px; padding-bottom: 14px; border-bottom: 2px solid #f0f4f1; }
 
   /* CREATIVE CARDS */
-  .creative-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 36px;
-  }
-  .creative-card {
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #e8edf0;
-  }
-  .creative-card .card-image {
-    height: 100px;
+  .creative-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin-bottom: 0; }
+  .creative-card { border-radius: 14px; overflow: hidden; border: 1px solid #e8edf0; }
+
+  /* Image placeholder */
+  .ad-image-slot {
+    height: 200px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 36px;
+    border: 2px dashed #ccc;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
   }
-  .creative-card.plener .card-image { background: linear-gradient(135deg, #52b788, #95d5b2); }
-  .creative-card.biale .card-image  { background: linear-gradient(135deg, #f8f9fa, #dee2e6); }
-  .creative-card.czarne .card-image { background: linear-gradient(135deg, #2b2d42, #495057); }
-  .creative-card .card-body { padding: 14px 16px; }
-  .creative-card .card-name { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
-  .creative-card .card-desc { font-size: 11px; color: #6c757d; }
-
-  /* COMPARISON TABLE */
-  .compare-wrap { overflow-x: auto; margin-bottom: 12px; }
-  table {
+  .ad-image-slot:hover { background: #f0f4f1; border-color: #2d6a4f; }
+  .ad-image-slot img {
     width: 100%;
-    border-collapse: collapse;
-    font-size: 13.5px;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    position: absolute;
+    top: 0; left: 0;
   }
-  thead tr {
-    background: #1a3a2a;
-    color: white;
-  }
-  thead th {
-    padding: 13px 16px;
-    text-align: left;
-    font-weight: 600;
+  .ad-image-slot .placeholder-text {
+    text-align: center;
+    color: #aaa;
     font-size: 12px;
-    letter-spacing: 0.3px;
+    padding: 10px;
+    z-index: 1;
   }
+  .ad-image-slot .placeholder-icon { font-size: 32px; margin-bottom: 8px; }
+  .ad-image-slot input[type=file] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .creative-card.plener .ad-image-slot { background: #f0fdf4; border-color: #95d5b2; }
+  .creative-card.biale  .ad-image-slot { background: #f8f9fa; border-color: #ced4da; }
+  .creative-card.czarne .ad-image-slot { background: #212529; border-color: #495057; }
+  .creative-card.czarne .placeholder-text { color: #888; }
+
+  .card-body { padding: 14px 16px; }
+  .card-name { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+  .card-desc { font-size: 11px; color: #6c757d; }
+
+  /* TABLE */
+  .compare-wrap { overflow-x: auto; margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead tr { background: #1a3a2a; color: white; }
+  thead th { padding: 12px 16px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: 0.3px; }
   thead th:not(:first-child) { text-align: center; }
   tbody tr { border-bottom: 1px solid #f0f4f1; }
   tbody tr:hover { background: #f8fdf9; }
-  tbody td {
-    padding: 11px 16px;
-    color: #333;
-  }
+  tbody td { padding: 11px 16px; color: #333; }
   tbody td:not(:first-child) { text-align: center; }
   .metric-label { font-weight: 500; color: #555; }
-  .best { font-weight: 700; color: #2d6a4f; }
+  .best  { font-weight: 700; color: #2d6a4f; }
   .worst { color: #c0392b; }
-  .col-plener { background: rgba(82, 183, 136, 0.06); }
-  .col-studio { background: rgba(41, 98, 255, 0.05); }
-  .col-biale { background: rgba(248, 249, 250, 0.8); }
-  .col-czarne { background: rgba(43, 45, 66, 0.05); }
+  .col-plener { background: rgba(82,183,136,0.06); }
+  .col-studio { background: rgba(41,98,255,0.05); }
+  .col-biale  { background: rgba(248,249,250,0.8); }
+  .col-czarne { background: rgba(43,45,66,0.05); }
 
-  /* DIVIDER */
   .divider { height: 1px; background: #f0f4f1; margin: 0 48px; }
 
-  /* WINNER BOX */
-  .winner-section { padding: 28px 48px; }
-  .winner-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 0; }
-  .winner-card {
-    border-radius: 12px;
-    padding: 20px 22px;
-    border-left: 5px solid;
-  }
+  /* WINNERS */
+  .winner-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .winner-card { border-radius: 12px; padding: 20px 22px; border-left: 5px solid; }
   .winner-card.green { background: #f0fdf4; border-color: #2d6a4f; }
   .winner-card.blue  { background: #eff6ff; border-color: #3b82f6; }
   .winner-card .round { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; color: #6c757d; }
   .winner-card .winner-name { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
   .winner-card.green .winner-name { color: #1a3a2a; }
-  .winner-card.blue .winner-name  { color: #1e40af; }
+  .winner-card.blue  .winner-name { color: #1e40af; }
   .winner-card .winner-reason { font-size: 12.5px; color: #555; line-height: 1.5; }
-  .winner-card .stats-row { display: flex; gap: 16px; margin-top: 10px; }
-  .winner-card .stat { }
+  .winner-card .stats-row { display: flex; gap: 16px; margin-top: 12px; }
   .winner-card .stat .s-label { font-size: 10px; text-transform: uppercase; color: #888; }
-  .winner-card .stat .s-value { font-size: 16px; font-weight: 800; }
+  .winner-card .stat .s-value { font-size: 18px; font-weight: 800; }
   .winner-card.green .stat .s-value { color: #2d6a4f; }
-  .winner-card.blue .stat .s-value  { color: #1e40af; }
+  .winner-card.blue  .stat .s-value { color: #1e40af; }
 
   /* HIERARCHY */
   .hierarchy {
-    background: #f8fdf9;
-    border: 1px solid #d8f3dc;
-    border-radius: 12px;
-    padding: 20px 24px;
-    margin: 28px 48px;
-    font-size: 14px;
+    background: #f8fdf9; border: 1px solid #d8f3dc;
+    border-radius: 12px; padding: 20px 24px;
+    margin: 0 48px 10px;
   }
-  .hierarchy .h-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #2d6a4f; margin-bottom: 12px; }
-  .hierarchy-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-weight: 600; color: #1a1a2e; }
-  .hierarchy-row .arrow { color: #2d6a4f; font-size: 18px; }
-  .hierarchy-row .sub { margin-left: 24px; font-size: 13px; color: #555; font-weight: 400; }
+  .h-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #2d6a4f; margin-bottom: 12px; }
+  .h-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 14px; font-weight: 600; }
+  .h-row:last-child { margin-bottom: 0; }
+  .h-tag { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; }
+  .h-tag.skaluj  { background: #d8f3dc; color: #1a3a2a; }
+  .h-tag.rmkt    { background: #fef9c3; color: #78350f; }
+  .h-tag.zasieg  { background: #f1f5f9; color: #475569; }
 
-  /* RECOMMENDATIONS */
+  /* RECO */
   .reco-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
-  .reco-card {
-    border-radius: 10px;
-    padding: 18px;
-    background: #f8f9fa;
-    border-top: 4px solid;
-  }
+  .reco-card { border-radius: 10px; padding: 18px; background: #f8f9fa; border-top: 4px solid; }
   .reco-card.scale { border-color: #2d6a4f; }
   .reco-card.keep  { border-color: #f59e0b; }
-  .reco-card.move  { border-color: #6c757d; }
-  .reco-card .reco-icon { font-size: 22px; margin-bottom: 8px; }
-  .reco-card .reco-title { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .reco-card.move  { border-color: #94a3b8; }
+  .reco-icon  { font-size: 22px; margin-bottom: 8px; }
+  .reco-title { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
   .reco-card.scale .reco-title { color: #1a3a2a; }
   .reco-card.keep  .reco-title { color: #92400e; }
-  .reco-card.move  .reco-title { color: #495057; }
-  .reco-card .reco-text { font-size: 12px; color: #666; line-height: 1.5; }
-
-  /* FOOTER */
-  .footer {
-    background: #1a1a2e;
-    color: rgba(255,255,255,0.5);
-    padding: 20px 48px;
-    font-size: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .footer span { color: rgba(255,255,255,0.8); font-weight: 600; }
+  .reco-card.move  .reco-title { color: #475569; }
+  .reco-text  { font-size: 12px; color: #666; line-height: 1.5; }
 
   /* NOTE */
   .note {
-    background: #fff8e1;
-    border-left: 4px solid #f59e0b;
+    background: #fff8e1; border-left: 4px solid #f59e0b;
     border-radius: 0 8px 8px 0;
-    padding: 12px 16px;
-    font-size: 12px;
-    color: #78350f;
-    margin-top: 14px;
-    line-height: 1.5;
+    padding: 12px 16px; font-size: 12px; color: #78350f;
+    margin-top: 14px; line-height: 1.5;
   }
+
+  /* HOW TO ADD IMAGES */
+  .how-to {
+    background: #e8f4fd; border: 1px solid #bfdbfe;
+    border-radius: 10px; padding: 14px 18px;
+    font-size: 12px; color: #1e3a5f; margin: 0 48px 28px;
+    line-height: 1.6;
+  }
+  .how-to strong { color: #1e40af; }
+
+  /* FOOTER */
+  .footer {
+    background: #1a1a2e; color: rgba(255,255,255,0.5);
+    padding: 20px 48px; font-size: 12px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer span { color: rgba(255,255,255,0.8); font-weight: 600; }
 
   @media print {
     body { background: white; padding: 0; }
     .page { box-shadow: none; border-radius: 0; }
+    .how-to { display: none; }
+    .ad-image-slot input[type=file] { display: none; }
   }
 </style>
 </head>
@@ -241,12 +210,13 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-logo">
-      <div class="logo-badge">🌲 Tatrzański Park Narodowy</div>
-      <div class="logo-badge">Meta Ads</div>
+    <div class="header-badges">
+      <div class="badge">🌲 Tatrzański Park Narodowy</div>
+      <div class="badge">📘 Meta Ads</div>
+      <div class="badge">🧪 Test AB</div>
     </div>
     <h1>Test kreacji — „O zwierzętach, które wybrały Tatry"</h1>
-    <p>Analiza TPN (Test → Poznaj → Następne kroki)</p>
+    <p>Analiza TPN · Test → Poznaj → Następne kroki</p>
     <div class="header-meta">
       <div class="meta-item">
         <div class="label">Okres</div>
@@ -271,34 +241,66 @@
     </div>
   </div>
 
+  <!-- HOW TO ADD IMAGES -->
+  <div class="how-to" style="margin-top:28px">
+    📸 <strong>Jak dodać screeny:</strong> Kliknij na szare pole pod każdą kreacją → wybierz plik z dysku. Zdjęcie pojawi się od razu. Następnie Ctrl+P → Zapisz jako PDF.
+  </div>
+
   <!-- CREATIVE CARDS -->
-  <div class="section" style="padding-bottom: 0">
+  <div class="section" style="padding-top:0; padding-bottom:36px">
     <div class="section-title">Testowane kreacje</div>
     <h2>Co testowaliśmy?</h2>
     <div class="creative-cards">
+
       <div class="creative-card plener">
-        <div class="card-image">🌿</div>
+        <div class="ad-image-slot" id="slot-plener">
+          <input type="file" accept="image/*" onchange="loadImage(this,'slot-plener')">
+          <div class="placeholder-text">
+            <div class="placeholder-icon">🌿</div>
+            <strong>Kliknij i wgraj screen</strong><br>Zdjęcia plenerowe
+          </div>
+          <img id="img-plener" alt="Plener">
+        </div>
         <div class="card-body">
-          <div class="card-name">Zdjęcia plenerowe</div>
-          <div class="card-desc">Książki na tle trawy / natury. Wydano ~398 PLN</div>
+          <div class="card-name">🌿 Zdjęcia plenerowe</div>
+          <div class="card-desc">Książki na tle natury · Budżet ~398 PLN</div>
         </div>
       </div>
-      <div class="creative-card biale">
-        <div class="card-image" style="color:#333">⬜</div>
-        <div class="card-body">
-          <div class="card-name">Studio — białe tło</div>
-          <div class="card-desc">Produktowe, jasne tło. Wydano ~200 PLN</div>
-        </div>
-      </div>
+
       <div class="creative-card czarne">
-        <div class="card-image">⬛</div>
+        <div class="ad-image-slot" id="slot-czarne">
+          <input type="file" accept="image/*" onchange="loadImage(this,'slot-czarne')">
+          <div class="placeholder-text">
+            <div class="placeholder-icon">⬛</div>
+            <strong style="color:#ccc">Kliknij i wgraj screen</strong><br><span style="color:#888">Studio — czarne tło</span>
+          </div>
+          <img id="img-czarne" alt="Czarne tło">
+        </div>
         <div class="card-body">
-          <div class="card-name">Studio — czarne tło</div>
-          <div class="card-desc">Produktowe, ciemne tło. Wydano ~199 PLN</div>
+          <div class="card-name">⬛ Studio — czarne tło</div>
+          <div class="card-desc">Produktowe, ciemne tło · Budżet ~199 PLN</div>
         </div>
       </div>
+
+      <div class="creative-card biale">
+        <div class="ad-image-slot" id="slot-biale">
+          <input type="file" accept="image/*" onchange="loadImage(this,'slot-biale')">
+          <div class="placeholder-text">
+            <div class="placeholder-icon">⬜</div>
+            <strong>Kliknij i wgraj screen</strong><br>Studio — białe tło
+          </div>
+          <img id="img-biale" alt="Białe tło">
+        </div>
+        <div class="card-body">
+          <div class="card-name">⬜ Studio — białe tło</div>
+          <div class="card-desc">Produktowe, jasne tło · Budżet ~200 PLN</div>
+        </div>
+      </div>
+
     </div>
   </div>
+
+  <div class="divider"></div>
 
   <!-- PART 1 TABLE -->
   <div class="section">
@@ -315,71 +317,21 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="metric-label">Wydano (PLN)</td>
-            <td class="col-plener">398,47</td>
-            <td class="col-studio">398,98</td>
-            <td>—</td>
-          </tr>
-          <tr>
-            <td class="metric-label">Wyświetlenia</td>
-            <td class="col-plener">54 115</td>
-            <td class="col-studio">46 278</td>
-            <td>🌿 Plener</td>
-          </tr>
-          <tr>
-            <td class="metric-label">CPM (PLN)</td>
-            <td class="col-plener best">7,36</td>
-            <td class="col-studio">8,62</td>
-            <td>🌿 Plener</td>
-          </tr>
-          <tr>
-            <td class="metric-label">CTR link</td>
-            <td class="col-plener best">1,09%</td>
-            <td class="col-studio">0,76%</td>
-            <td>🌿 Plener</td>
-          </tr>
-          <tr>
-            <td class="metric-label">CPC link (PLN)</td>
-            <td class="col-plener best">0,68</td>
-            <td class="col-studio">1,13</td>
-            <td>🌿 Plener</td>
-          </tr>
-          <tr>
-            <td class="metric-label">Zakupy</td>
-            <td class="col-plener">13</td>
-            <td class="col-studio">13</td>
-            <td>— Remis</td>
-          </tr>
-          <tr>
-            <td class="metric-label">CPA (PLN)</td>
-            <td class="col-plener">30,65</td>
-            <td class="col-studio">30,69</td>
-            <td>— Remis</td>
-          </tr>
-          <tr>
-            <td class="metric-label">Wartość konwersji (PLN)</td>
-            <td class="col-plener">703,25</td>
-            <td class="col-studio best">1 160,00</td>
-            <td>🎬 Studio</td>
-          </tr>
-          <tr>
-            <td class="metric-label">ROAS</td>
-            <td class="col-plener worst">1,76</td>
-            <td class="col-studio best">2,91</td>
-            <td>🎬 Studio</td>
-          </tr>
-          <tr>
-            <td class="metric-label">Śr. wartość zamówienia (PLN)</td>
-            <td class="col-plener worst">54,10</td>
-            <td class="col-studio best">89,23</td>
-            <td>🎬 Studio</td>
-          </tr>
+          <tr><td class="metric-label">Wydano (PLN)</td><td class="col-plener">398,47</td><td class="col-studio">398,98</td><td>—</td></tr>
+          <tr><td class="metric-label">Wyświetlenia</td><td class="col-plener best">54 115</td><td class="col-studio">46 278</td><td>🌿 Plener</td></tr>
+          <tr><td class="metric-label">CPM (PLN)</td><td class="col-plener best">7,36</td><td class="col-studio">8,62</td><td>🌿 Plener</td></tr>
+          <tr><td class="metric-label">CTR link</td><td class="col-plener best">1,09%</td><td class="col-studio">0,76%</td><td>🌿 Plener</td></tr>
+          <tr><td class="metric-label">CPC link (PLN)</td><td class="col-plener best">0,68</td><td class="col-studio">1,13</td><td>🌿 Plener</td></tr>
+          <tr><td class="metric-label">Zakupy</td><td class="col-plener">13</td><td class="col-studio">13</td><td>— Remis</td></tr>
+          <tr><td class="metric-label">CPA (PLN)</td><td class="col-plener">30,65</td><td class="col-studio">30,69</td><td>— Remis</td></tr>
+          <tr><td class="metric-label">Wartość konwersji (PLN)</td><td class="col-plener worst">703,25</td><td class="col-studio best">1 160,00</td><td>🎬 Studio</td></tr>
+          <tr><td class="metric-label">ROAS</td><td class="col-plener worst">1,76</td><td class="col-studio best">2,91</td><td>🎬 Studio</td></tr>
+          <tr><td class="metric-label">Śr. wartość zamówienia (PLN)</td><td class="col-plener worst">54,10</td><td class="col-studio best">89,23</td><td>🎬 Studio</td></tr>
         </tbody>
       </table>
     </div>
     <div class="note">
-      ⚠️ <strong>Uwaga metodologiczna:</strong> Plener otrzymał 2× wyższy budżet niż każdy z wariantów studyjnych z osobna. Dlatego w tej tabeli studio jest sumą obu wariantów — budżety są wyrównane (~400 PLN vs ~400 PLN). Liczby bezwzględne (zakupy) są porównywalne, kluczowe są metryki efektywności: ROAS, CPA, AOV.
+      ⚠️ <strong>Uwaga metodologiczna:</strong> Plener otrzymał 2× wyższy budżet niż każdy wariant studyjny z osobna. W tej tabeli studio = suma obu wariantów — budżety są wyrównane (~400 vs ~400 PLN). Kluczowe są metryki znormalizowane: ROAS, CPA, AOV.
     </div>
   </div>
 
@@ -400,98 +352,43 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="metric-label">Wydano (PLN)</td>
-            <td class="col-biale">199,72</td>
-            <td class="col-czarne">199,26</td>
-            <td>—</td>
-          </tr>
-          <tr>
-            <td class="metric-label">CPM (PLN)</td>
-            <td class="col-biale">9,47</td>
-            <td class="col-czarne best">7,91</td>
-            <td>⬛ Czarne</td>
-          </tr>
-          <tr>
-            <td class="metric-label">CTR link</td>
-            <td class="col-biale best">0,88%</td>
-            <td class="col-czarne">0,67%</td>
-            <td>⬜ Białe</td>
-          </tr>
-          <tr>
-            <td class="metric-label">CPC link (PLN)</td>
-            <td class="col-biale best">1,08</td>
-            <td class="col-czarne">1,19</td>
-            <td>⬜ Białe</td>
-          </tr>
-          <tr>
-            <td class="metric-label">Zakupy</td>
-            <td class="col-biale">6</td>
-            <td class="col-czarne best">7</td>
-            <td>⬛ Czarne</td>
-          </tr>
-          <tr>
-            <td class="metric-label">CPA (PLN)</td>
-            <td class="col-biale">33,29</td>
-            <td class="col-czarne best">28,47</td>
-            <td>⬛ Czarne</td>
-          </tr>
-          <tr>
-            <td class="metric-label">Wartość konwersji (PLN)</td>
-            <td class="col-biale best">626,10</td>
-            <td class="col-czarne">533,90</td>
-            <td>⬜ Białe</td>
-          </tr>
-          <tr>
-            <td class="metric-label">ROAS</td>
-            <td class="col-biale best">3,13</td>
-            <td class="col-czarne">2,68</td>
-            <td>⬜ Białe</td>
-          </tr>
-          <tr>
-            <td class="metric-label">Śr. wartość zamówienia (PLN)</td>
-            <td class="col-biale best">104,35</td>
-            <td class="col-czarne">76,27</td>
-            <td>⬜ Białe</td>
-          </tr>
+          <tr><td class="metric-label">Wydano (PLN)</td><td class="col-biale">199,72</td><td class="col-czarne">199,26</td><td>—</td></tr>
+          <tr><td class="metric-label">CPM (PLN)</td><td class="col-biale">9,47</td><td class="col-czarne best">7,91</td><td>⬛ Czarne</td></tr>
+          <tr><td class="metric-label">CTR link</td><td class="col-biale best">0,88%</td><td class="col-czarne">0,67%</td><td>⬜ Białe</td></tr>
+          <tr><td class="metric-label">CPC link (PLN)</td><td class="col-biale best">1,08</td><td class="col-czarne">1,19</td><td>⬜ Białe</td></tr>
+          <tr><td class="metric-label">Zakupy</td><td class="col-biale">6</td><td class="col-czarne best">7</td><td>⬛ Czarne</td></tr>
+          <tr><td class="metric-label">CPA (PLN)</td><td class="col-biale">33,29</td><td class="col-czarne best">28,47</td><td>⬛ Czarne</td></tr>
+          <tr><td class="metric-label">Wartość konwersji (PLN)</td><td class="col-biale best">626,10</td><td class="col-czarne">533,90</td><td>⬜ Białe</td></tr>
+          <tr><td class="metric-label">ROAS</td><td class="col-biale best">3,13</td><td class="col-czarne">2,68</td><td>⬜ Białe</td></tr>
+          <tr><td class="metric-label">Śr. wartość zamówienia (PLN)</td><td class="col-biale best">104,35</td><td class="col-czarne">76,27</td><td>⬜ Białe</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
+  <div class="divider"></div>
+
   <!-- WINNERS -->
-  <div class="winner-section">
-    <div class="section-title" style="padding: 0 0 6px">Podsumowanie</div>
-    <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 20px; padding-bottom: 0; border: none;">Kto wygrał?</h2>
+  <div class="section">
+    <div class="section-title">Podsumowanie</div>
+    <h2>Kto wygrał?</h2>
     <div class="winner-grid">
       <div class="winner-card green">
         <div class="round">Runda 1 — Plener vs Studio</div>
         <div class="winner-name">🎬 Studio wygrywa</div>
-        <div class="winner-reason">Przy identycznym koszcie i tej samej liczbie zakupów (13 vs 13), studio wygenerowało blisko 2× wyższy przychód. Plener przyciąga tańszy ruch, ale niższej jakości zakupowo.</div>
+        <div class="winner-reason">Przy identycznym koszcie i tej samej liczbie zakupów (13 vs 13), studio wygenerowało blisko 2× wyższy przychód. Plener przyciąga tańszy ruch, ale niższej wartości zakupowej.</div>
         <div class="stats-row">
-          <div class="stat">
-            <div class="s-label">ROAS Studio</div>
-            <div class="s-value">2,91</div>
-          </div>
-          <div class="stat">
-            <div class="s-label">ROAS Plener</div>
-            <div class="s-value" style="color:#c0392b">1,76</div>
-          </div>
+          <div class="stat"><div class="s-label">ROAS Studio</div><div class="s-value">2,91</div></div>
+          <div class="stat"><div class="s-label">ROAS Plener</div><div class="s-value" style="color:#c0392b">1,76</div></div>
         </div>
       </div>
       <div class="winner-card blue">
         <div class="round">Runda 2 — Białe vs Czarne tło</div>
         <div class="winner-name">⬜ Białe tło wygrywa (ROAS)</div>
-        <div class="winner-reason">Białe tło generuje wyższy ROAS i wyraźnie wyższą wartość zamówienia (104 vs 76 PLN). Czarne tło ma niższy CPA — lepsze do remarketingu, gdzie liczba transakcji ważniejsza od wartości.</div>
+        <div class="winner-reason">Białe tło: wyższy ROAS i wyraźnie wyższa wartość zamówienia (104 vs 76 PLN). Czarne tło ma niższy CPA — idealne do remarketingu, gdzie liczy się liczba transakcji.</div>
         <div class="stats-row">
-          <div class="stat">
-            <div class="s-label">ROAS białe</div>
-            <div class="s-value">3,13</div>
-          </div>
-          <div class="stat">
-            <div class="s-label">ROAS czarne</div>
-            <div class="s-value" style="color:#78350f">2,68</div>
-          </div>
+          <div class="stat"><div class="s-label">ROAS białe</div><div class="s-value">3,13</div></div>
+          <div class="stat"><div class="s-label">ROAS czarne</div><div class="s-value" style="color:#92400e">2,68</div></div>
         </div>
       </div>
     </div>
@@ -500,22 +397,13 @@
   <!-- HIERARCHY -->
   <div class="hierarchy">
     <div class="h-title">Hierarchia wyników</div>
-    <div class="hierarchy-row">
-      🥇 <strong>Studio białe tło</strong> — ROAS 3,13 | AOV 104 PLN
-      <span class="arrow">→</span> <span style="color:#2d6a4f; font-size:12px">Główna kreacja sprzedażowa</span>
-    </div>
-    <div class="hierarchy-row">
-      🥈 <strong>Studio czarne tło</strong> — ROAS 2,68 | CPA 28,47 PLN
-      <span class="arrow">→</span> <span style="color:#f59e0b; font-size:12px">Remarketing / cold traffic CPA</span>
-    </div>
-    <div class="hierarchy-row">
-      🥉 <strong>Plener</strong> — ROAS 1,76 | CTR 1,09%
-      <span class="arrow">→</span> <span style="color:#6c757d; font-size:12px">TOF / zasięg / świadomość</span>
-    </div>
+    <div class="h-row">🥇 <strong>Studio — białe tło</strong> &nbsp;·&nbsp; ROAS 3,13 &nbsp;·&nbsp; AOV 104 PLN <span class="h-tag skaluj" style="margin-left:8px">Skaluj</span></div>
+    <div class="h-row">🥈 <strong>Studio — czarne tło</strong> &nbsp;·&nbsp; ROAS 2,68 &nbsp;·&nbsp; CPA 28,47 PLN <span class="h-tag rmkt" style="margin-left:8px">Remarketing</span></div>
+    <div class="h-row">🥉 <strong>Plener</strong> &nbsp;·&nbsp; ROAS 1,76 &nbsp;·&nbsp; CTR 1,09% <span class="h-tag zasieg" style="margin-left:8px">TOF / Zasięg</span></div>
   </div>
 
   <!-- RECOMMENDATIONS -->
-  <div class="section">
+  <div class="section" style="padding-top:28px">
     <div class="section-title">Następne kroki</div>
     <h2>Rekomendacje</h2>
     <div class="reco-grid">
@@ -526,23 +414,41 @@
       </div>
       <div class="reco-card keep">
         <div class="reco-icon">🎯</div>
-        <div class="reco-title">Czarne do remarketingu</div>
+        <div class="reco-title">Czarne → remarketing</div>
         <div class="reco-text">Najniższy CPA (28,47 PLN). Użyj jako kreacji remarketingowej do osób, które odwiedziły sklep ale nie kupiły.</div>
       </div>
       <div class="reco-card move">
         <div class="reco-icon">📢</div>
-        <div class="reco-title">Plener → TOF/zasięg</div>
-        <div class="reco-text">Najlepszy CTR i najtańszy ruch. Przenieś do kampanii zasięgowej lub budowania świadomości — nie jako sprzedaż.</div>
+        <div class="reco-title">Plener → TOF / zasięg</div>
+        <div class="reco-text">Najlepszy CTR i najtańszy ruch. Przenieś do kampanii zasięgowej lub świadomościowej — nie jako sprzedaż.</div>
       </div>
     </div>
   </div>
 
   <!-- FOOTER -->
   <div class="footer">
-    <div>Tatrzański Park Narodowy · Meta Ads · <span>Kampania: 202605_O zwierzętach – test AB</span></div>
-    <div>Raport wygenerowany: <span>3 czerwca 2026</span></div>
+    <div>Tatrzański Park Narodowy &nbsp;·&nbsp; Meta Ads &nbsp;·&nbsp; <span>202605_O zwierzętach – test AB</span></div>
+    <div>Raport: <span>3 czerwca 2026</span></div>
   </div>
 
 </div>
+
+<script>
+function loadImage(input, slotId) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const slot = document.getElementById(slotId);
+    const img  = slot.querySelector('img');
+    const text = slot.querySelector('.placeholder-text');
+    img.src = e.target.result;
+    img.style.display = 'block';
+    if (text) text.style.display = 'none';
+    slot.style.border = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+</script>
 </body>
 </html>
