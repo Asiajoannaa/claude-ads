@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meta Ads — Raport Forum Jubiler</title>
+<title>Raport Google Ads + Meta Ads — Forum Jubiler</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -346,6 +346,44 @@
   .badge.red { background: #ffebee; color: #c62828; }
   .badge.green { background: #e8f5e9; color: #2e7d32; }
   .badge.grey { background: #f5f5f5; color: #777; }
+  .badge.orange { background: #fff3e0; color: #e65100; }
+  .badge.blue { background: #e3f2fd; color: #1565c0; }
+
+  /* PLAN TABLE */
+  .plan-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 13px; }
+  .plan-table th {
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+  }
+  .plan-table td { padding: 11px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; line-height: 1.5; }
+  .plan-table tr:last-child td { border-bottom: none; }
+  .plan-table tr:nth-child(even) td { background: #fafafa; }
+  .plan-table .section-header td {
+    background: #1a1a2e;
+    color: #c9a84c;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .priority { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .priority.red { background: #e53935; }
+  .priority.orange { background: #fb8c00; }
+  .priority.blue { background: #1e88e5; }
+  .platform-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 6px;
+  }
+  .platform-tag.google { background: #e8f0fe; color: #1a73e8; }
+  .platform-tag.meta { background: #e8f0ff; color: #1877f2; }
+  .platform-tag.both { background: #f3e8ff; color: #6a1b9a; }
 
   @media print {
     body { background: #fff; }
@@ -381,30 +419,30 @@
 <div class="slide">
   <div class="slide-header">
     <div class="tag">01 — Punkt startowy</div>
-    <h2>Kampania wydawała pieniądze.<br>Bez żadnych wyników.</h2>
-    <p>Maj 2026 — miesięczny budżet Meta Ads: 1 500 PLN</p>
+    <h2>Kampanie wydawały pieniądze.<br>Bez żadnych mierzalnych wyników.</h2>
+    <p>Maj 2026 — łączny budżet reklamowy: 3 500 PLN/mies. (Google Ads 2 000 PLN + Meta Ads 1 500 PLN)</p>
   </div>
 
   <div class="stats-grid">
     <div class="stat-card red">
       <div class="val">1 509 PLN</div>
-      <div class="label">Wydano w ciągu miesiąca</div>
-      <div class="note">Cały budżet Meta Ads</div>
+      <div class="label">Meta Ads — wydano w maju</div>
+      <div class="note">0 połączeń, 0 formularzy</div>
     </div>
-    <div class="stat-card red">
-      <div class="val">0</div>
-      <div class="label">Konwersji (leady / połączenia)</div>
-      <div class="note">Brak wymiernych wyników</div>
+    <div class="stat-card gold">
+      <div class="val">42 konw.</div>
+      <div class="label">Google Ads — konwersje w maju</div>
+      <div class="note">CPA 45,47 PLN — działa, ale nieoptymalne</div>
     </div>
     <div class="stat-card red">
       <div class="val">16</div>
-      <div class="label">Aktywnych reklam jednocześnie</div>
-      <div class="note">~94 PLN na reklamę — za mało</div>
+      <div class="label">Aktywnych reklam Meta jednocześnie</div>
+      <div class="note">~94 PLN na reklamę — za mało dla algorytmu</div>
     </div>
   </div>
 
   <div class="insight">
-    <strong>Dlaczego tak się działo?</strong> Kampania miała 16 aktywnych reklam walczących o ten sam budżet. Algorytm Meta potrzebuje minimum 50 konwersji miesięcznie na zestaw reklam żeby efektywnie optymalizować. Przy tak rozdrobnionym budżecie żadna reklama nie mogła zebrać wystarczających danych.
+    <strong>Główne problemy:</strong> Meta wydała 1 509 PLN bez żadnych mierzalnych wyników — błędny komunikat reklam, zbyt wiele kreacji, brak śledzenia konwersji. Google Ads działa i generuje leady, ale strategie stawek są nieoptymalne (Maks. kliknięć zamiast Target CPA), a kampania PMax jest 2x droższa od Search.
   </div>
 
   <div class="slide-footer">
@@ -560,72 +598,253 @@
   </div>
 </div>
 
-<!-- SLIDE 6: DALSZE KROKI -->
+<!-- SLIDE 6: GOOGLE ADS WYNIKI -->
 <div class="slide">
   <div class="slide-header">
-    <div class="tag">05 — Plan działań</div>
-    <h2>Co robimy dalej</h2>
+    <div class="tag">05 — Google Ads</div>
+    <h2>Google Ads działa — ale ma rezerwy wzrostu</h2>
+    <p>42 konwersje w maju przy CPA 45,47 PLN to dobry wynik. Poniżej lista optymalizacji które obniżą koszty i zwiększą liczbę leadów.</p>
   </div>
 
-  <div class="steps-grid">
-    <div class="step-card now">
-      <div class="step-tag">Natychmiast</div>
-      <h4>Skalowanie budżetu nowej kampanii</h4>
-      <p>Kampania generuje wyniki — zwiększamy budżet do 50–60 PLN/dzień i dajemy algorytmowi zebrać dane.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Obszar</th>
+        <th>Problem</th>
+        <th>Potencjalny efekt</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Strategie stawek</strong></td>
+        <td>Maks. kliknięć i Ręczny CPC — optymalizacja pod ruch, nie pod leady</td>
+        <td>−20–30% CPA</td>
+        <td><span class="badge orange">Do wdrożenia</span></td>
+      </tr>
+      <tr>
+        <td><strong>PMax</strong></td>
+        <td>CPA 99,63 PLN vs Search 45,47 PLN — 2× droższy</td>
+        <td>Oszczędność ~100 PLN/mies.</td>
+        <td><span class="badge orange">Do wdrożenia</span></td>
+      </tr>
+      <tr>
+        <td><strong>Słowa kluczowe</strong></td>
+        <td>~320 PLN/mies. na frazy z 0 konwersji</td>
+        <td>Oszczędność 320 PLN/mies.</td>
+        <td><span class="badge orange">Do wdrożenia</span></td>
+      </tr>
+      <tr>
+        <td><strong>Lista wykluczeń</strong></td>
+        <td>Reklamy wyświetlały się poza Warszawą i konkurentom</td>
+        <td>Wyższa jakość ruchu</td>
+        <td><span class="badge green">✓ Wdrożone</span></td>
+      </tr>
+      <tr>
+        <td><strong>Top słowa kluczowe</strong></td>
+        <td>7 fraz z CPA poniżej 30 PLN — niedofinansowane</td>
+        <td>+30% konwersji</td>
+        <td><span class="badge orange">Do wdrożenia</span></td>
+      </tr>
+      <tr>
+        <td><strong>Wysyłka maili</strong></td>
+        <td>8 konwersji w Google Ads — klient nie dostaje zapytań e-mail</td>
+        <td>Odzyskanie leadów</td>
+        <td><span class="badge orange">Do wdrożenia</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="slide-footer">
+    <span>Forum Jubiler — Google Ads + Meta Ads 2026</span>
+    <span>05 / 08</span>
+  </div>
+</div>
+
+<!-- SLIDE 7: PLAN DZIAŁAŃ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="tag">06 — Plan działań</div>
+    <h2>Co robimy i kiedy</h2>
+    <p>Priorytety na najbliższe 30 dni — Google Ads i Meta Ads łącznie</p>
+  </div>
+
+  <table class="plan-table">
+    <thead>
+      <tr style="background:#1a1a2e;">
+        <th style="color:#c9a84c; width:140px;">Kiedy</th>
+        <th style="color:#c9a84c; width:80px;">Platforma</th>
+        <th style="color:#c9a84c;">Działanie</th>
+        <th style="color:#c9a84c; width:160px;">Oczekiwany efekt</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="section-header"><td colspan="4">🔴 &nbsp;DZIŚ</td></tr>
+      <tr>
+        <td>Dziś</td>
+        <td><span class="platform-tag meta">Meta</span></td>
+        <td><span class="priority red"></span><strong>Reaktywuj nową kampanię</strong> — zwiększ budżet do 50–60 PLN/dzień</td>
+        <td>Więcej połączeń telefonicznych</td>
+      </tr>
+      <tr>
+        <td>Dziś</td>
+        <td><span class="platform-tag meta">Meta</span></td>
+        <td><span class="priority red"></span><strong>Wstrzymaj starą kampanię 202603</strong> — reklamy i tak się nie wyświetlają</td>
+        <td>Koniec przepalania budżetu</td>
+      </tr>
+      <tr>
+        <td>Dziś</td>
+        <td><span class="platform-tag google">Google</span></td>
+        <td><span class="priority red"></span><strong>Wstrzymaj PMax</strong> lub obniż budżet do 10 PLN/dzień</td>
+        <td>Oszczędność ~100 PLN/mies.</td>
+      </tr>
+      <tr>
+        <td>Dziś</td>
+        <td><span class="platform-tag google">Google</span></td>
+        <td><span class="priority red"></span><strong>Zmień targetowanie geo</strong> na "Obecność" (nie "Obecność lub zainteresowanie")</td>
+        <td>Tylko użytkownicy z Warszawy</td>
+      </tr>
+      <tr class="section-header"><td colspan="4">🟠 &nbsp;TEN TYDZIEŃ</td></tr>
+      <tr>
+        <td>2–3 dni</td>
+        <td><span class="platform-tag google">Google</span></td>
+        <td><span class="priority orange"></span><strong>Zmień strategię stawek</strong> kampanii "Biżuteria antykwaryczna" na Target CPA 30 PLN</td>
+        <td>−20–30% CPA na tej kampanii</td>
+      </tr>
+      <tr>
+        <td>3 dni</td>
+        <td><span class="platform-tag google">Google</span></td>
+        <td><span class="priority orange"></span><strong>Wstrzymaj frazy 0 konwersji</strong> z wydatkiem powyżej 25 PLN</td>
+        <td>Oszczędność ~320 PLN/mies.</td>
+      </tr>
+      <tr>
+        <td>3 dni</td>
+        <td><span class="platform-tag google">Google</span></td>
+        <td><span class="priority orange"></span><strong>Napraw wysyłkę maili</strong> — wtyczka WP Mail SMTP, sprawdź logi formularza</td>
+        <td>Odzyskanie leadów z 8 konwersji</td>
+      </tr>
+      <tr>
+        <td>5 dni</td>
+        <td><span class="platform-tag both">Obie</span></td>
+        <td><span class="priority orange"></span><strong>Sprawdź prędkość strony</strong> — tylko 16% kliknięć Meta ładuje stronę (norma: 60%+)</td>
+        <td>+30–40% konwersji bez wzrostu budżetu</td>
+      </tr>
+      <tr>
+        <td>7 dni</td>
+        <td><span class="platform-tag meta">Meta</span></td>
+        <td><span class="priority orange"></span><strong>Uruchom test A/B</strong> — 3 nowe wersje copy skupowe (przygotowane)</td>
+        <td>Niższy CPA połączenia</td>
+      </tr>
+      <tr>
+        <td>7 dni</td>
+        <td><span class="platform-tag google">Google</span></td>
+        <td><span class="priority orange"></span><strong>Dodaj rozszerzenia reklam</strong> — numer telefonu, lokalizacja, sitelinki, objaśnienia</td>
+        <td>Wyższy CTR, więcej kliknięć "Zadzwoń"</td>
+      </tr>
+      <tr class="section-header"><td colspan="4">🔵 &nbsp;PRZYSZŁY MIESIĄC</td></tr>
+      <tr>
+        <td>Tydzień 2–3</td>
+        <td><span class="platform-tag google">Google</span></td>
+        <td><span class="priority blue"></span><strong>Target CPA</strong> dla pozostałych kampanii Search (Wycena Warszawa, Wycena generic, Ekspertyzy)</td>
+        <td>Pełna optymalizacja konta</td>
+      </tr>
+      <tr>
+        <td>Tydzień 3–4</td>
+        <td><span class="platform-tag google">Google</span></td>
+        <td><span class="priority blue"></span><strong>Reaktywuj kampanię Naprawa biżuterii</strong> z realnym CPC 1,00 PLN, budżet 15 PLN/dzień</td>
+        <td>Nowy segment leadów</td>
+      </tr>
+      <tr>
+        <td>Tydzień 3–4</td>
+        <td><span class="platform-tag meta">Meta</span></td>
+        <td><span class="priority blue"></span><strong>Segmentacja Meta</strong> — osobne zestawy: skup diamentów / biżuteria antyczna / spadki</td>
+        <td>Precyzyjniejsze targetowanie</td>
+      </tr>
+      <tr>
+        <td>Miesiąc 2</td>
+        <td><span class="platform-tag google">Google</span></td>
+        <td><span class="priority blue"></span><strong>Nowa kampania</strong> — "Biżuteria na zamówienie Warszawa" (segment z wyższą marżą)</td>
+        <td>Nowy strumień przychodów</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="slide-footer">
+    <span>Forum Jubiler — Google Ads + Meta Ads 2026</span>
+    <span>06 / 08</span>
+  </div>
+</div>
+
+<!-- SLIDE 8: CELE -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="tag">07 — Cele</div>
+    <h2>Czego możemy się spodziewać<br>po wdrożeniu zmian</h2>
+  </div>
+
+  <div class="stats-grid" style="margin-top:28px;">
+    <div class="stat-card gold">
+      <div class="val">15–20</div>
+      <div class="label">Leadów miesięcznie z Meta</div>
+      <div class="note">Przy budżecie 1 500 PLN i CPA ~75 PLN</div>
     </div>
-    <div class="step-card now">
-      <div class="step-tag">Natychmiast</div>
-      <h4>Dokończenie śledzenia formularzy</h4>
-      <p>Wdrożenie zdarzenia Lead przez GTM — Meta zacznie liczyć wypełnienia formularzy obok połączeń.</p>
+    <div class="stat-card green">
+      <div class="val">~35 PLN</div>
+      <div class="label">Cel CPA Google Ads</div>
+      <div class="note">Obecny: 45,47 PLN → po Target CPA</div>
     </div>
-    <div class="step-card week">
-      <div class="step-tag">Ten miesiąc</div>
-      <h4>Test nowych wersji copy</h4>
-      <p>Przygotowano 5 wersji tekstów reklamowych z różnymi kątami komunikacji. Uruchamiamy A/B test.</p>
+    <div class="stat-card green">
+      <div class="val">55–60</div>
+      <div class="label">Konwersji miesięcznie łącznie</div>
+      <div class="note">Google + Meta po optymalizacji</div>
     </div>
-    <div class="step-card week">
-      <div class="step-tag">Ten miesiąc</div>
-      <h4>Optymalizacja prędkości strony</h4>
-      <p>Tylko 16% osób klikających reklamę ładuje stronę do końca. Naprawa zwiększy liczbę konwersji bez dodatkowego budżetu.</p>
+  </div>
+
+  <div class="comparison" style="margin-top:24px;">
+    <div class="comp-box before">
+      <h3>📊 Obecna sytuacja</h3>
+      <div class="comp-row"><span class="k">Google — konwersje</span><span class="v">42/mies.</span></div>
+      <div class="comp-row"><span class="k">Google — CPA</span><span class="v">45,47 PLN</span></div>
+      <div class="comp-row"><span class="k">Meta — konwersje</span><span class="v">0/mies.</span></div>
+      <div class="comp-row"><span class="k">Meta — CPA</span><span class="v">∞</span></div>
+      <div class="comp-row"><span class="k">Łącznie leady</span><span class="v">~42/mies.</span></div>
     </div>
-    <div class="step-card month">
-      <div class="step-tag">Kolejny miesiąc</div>
-      <h4>Segmentacja kampanii</h4>
-      <p>Osobne zestawy reklam dla: skup diamentów · biżuteria antyczna · spadki i dziedziczenie.</p>
-    </div>
-    <div class="step-card month">
-      <div class="step-tag">Kolejny miesiąc</div>
-      <h4>Cel: 10–15 leadów miesięcznie</h4>
-      <p>Przy CPA 57,89 PLN i budżecie 1 500 PLN realistyczny cel to 15–20 połączeń lub formularzy.</p>
+    <div class="comp-box after">
+      <h3>🎯 Cel po optymalizacji</h3>
+      <div class="comp-row"><span class="k">Google — konwersje</span><span class="v">40–45/mies.</span></div>
+      <div class="comp-row"><span class="k">Google — CPA</span><span class="v">~35 PLN</span></div>
+      <div class="comp-row"><span class="k">Meta — konwersje</span><span class="v">15–20/mies.</span></div>
+      <div class="comp-row"><span class="k">Meta — CPA</span><span class="v">~75 PLN</span></div>
+      <div class="comp-row"><span class="k">Łącznie leady</span><span class="v">55–65/mies.</span></div>
     </div>
   </div>
 
   <div class="slide-footer">
-    <span>Forum Jubiler — Meta Ads 2026</span>
-    <span>05 / 06</span>
+    <span>Forum Jubiler — Google Ads + Meta Ads 2026</span>
+    <span>07 / 08</span>
   </div>
 </div>
 
-<!-- SLIDE 7: PODSUMOWANIE -->
+<!-- SLIDE 9: PODSUMOWANIE -->
 <div class="slide slide-title">
   <div class="gold-bar"></div>
   <div class="label">Podsumowanie</div>
-  <h1>Od 0 wyników<br>do <span>pierwszych leadów</span></h1>
-  <div class="subtitle" style="max-width:580px; line-height:1.6">
-    W ciągu jednego tygodnia od wprowadzenia zmian kampania Meta wygenerowała pierwsze mierzalne wyniki — 3 połączenia telefoniczne przy koszcie 57,89 PLN każde. To solidna podstawa do dalszej optymalizacji i skalowania.
+  <h1>Dobra podstawa.<br><span>Duży potencjał wzrostu.</span></h1>
+  <div class="subtitle" style="max-width:620px; line-height:1.6">
+    Google Ads generuje stabilne leady. Meta Ads właśnie weszła na właściwy tor — pierwsze 3 połączenia po tygodniu działania. Po wdrożeniu planu optymalizacji cel to 55–65 leadów miesięcznie przy tym samym budżecie.
   </div>
   <div class="meta-row">
     <div class="meta-item">
       <strong>Następny przegląd</strong>
-      Po 30 dniach od uruchomienia
+      Po 30 dniach
     </div>
     <div class="meta-item">
       <strong>Cel na lipiec</strong>
-      15–20 leadów miesięcznie
+      55–65 leadów/mies.
     </div>
     <div class="meta-item">
       <strong>Budżet</strong>
-      1 500–1 800 PLN/mies.
+      3 500 PLN/mies.
     </div>
   </div>
 </div>
