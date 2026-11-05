@@ -24,7 +24,7 @@
 - Focus na **wycenę i skup diamentów oraz złota**
 
 ### Czego nie robimy
-- **Kampania leadowa / "Kontakty" / "Ruch" na skup złota:** próbowaliśmy, koszty były zbyt wysokie — na razie rezygnujemy
+- **Kampania leadowa / "Kontakty" / "Ruch" na skup złota:** próbowaliśmy — pixel działa, ale Meta nie generuje leadów dla skupu złota/diamentów. Kampania z celem Kontakty wydała ~3 843 zł przy 20 040 kliknięciach i 0 konwersjach. Rezygnujemy z kampanii leadowych na Meta.
 - **Kampania pierścionkowa (zaręczynowa):** rezygnujemy, nie jest priorytetem
 
 ### Sprzątanie konta (2026-11-05)
